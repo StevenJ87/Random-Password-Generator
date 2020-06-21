@@ -1,12 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-
-//Ask questions
-
-characterSet=(function() {
+var characterSet;
+var value = []
+function passwordLength() {
   let number = null
   while ( number == null ) {
       let value = prompt( "How many characters in password? 8-128" )
@@ -21,14 +17,20 @@ characterSet=(function() {
       }
   }
   return number;
-})();
+};
+// Write password to the #password input
+function writePassword() {
+
+//Ask questions
+characterSet=passwordLength()
+
 
 var upperChoice = confirm("Would you like upper case?")
 var lowerChoice = confirm("Would you like lower case?")
 var numberChoice = confirm("Would you like numbers?")
 var figureChoice = confirm("Would you like symbols?")
 
-var value = []
+
 
 if(upperChoice === true){
   value.push("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
@@ -46,6 +48,14 @@ if(figureChoice === true){
   value.push("~","!","@","#","$","%","^","&","*","+")
 }
 
+
+  var passwordSet = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+   passwordText.value = passwordSet;
+
+}
+ 
 function generatePassword(){
   var password = "";
   for(var i = 0; i < characterSet; i++){
@@ -57,14 +67,6 @@ function generatePassword(){
   
  }
   
-  var passwordSet = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-   passwordText.value = passwordSet;
-
-}
- 
- 
 
 // Add event listener to generate button
     generateBtn.addEventListener("click", writePassword);
