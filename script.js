@@ -20,10 +20,10 @@ function passwordLength() {
 };
 // Write password to the #password input
 function writePassword() {
-
+  
 //Ask questions
 characterSet=passwordLength()
-
+value = [];
 
 var upperChoice = confirm("Would you like upper case?")
 var lowerChoice = confirm("Would you like lower case?")
